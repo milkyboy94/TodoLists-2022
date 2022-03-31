@@ -25,9 +25,10 @@ function paintToDo(newTodo) {
   li.id = newTodo.id;
   const span = document.createElement("span");
   const button = document.createElement("button");
-  button.innerText = "❤️";
-  li.appendChild(span);
+  button.innerText = "👍";
   li.appendChild(button);
+  li.appendChild(span);
+
   span.innerText = newTodo.text;
   toDoList.appendChild(li);
   // 이제 list를 지우는 작업을 해보자.
