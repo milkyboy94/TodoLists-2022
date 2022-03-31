@@ -8,6 +8,8 @@
   width: 100%;
   top: 0px;
   left: 0px;
+  /* background-color: black;
+  z-index: -2; */
 }
 
 .bgImage {
@@ -18,5 +20,4 @@
   height: 90%;
   z-index: -1;
   min-height: 750px;
-  background-color: black;
 }
