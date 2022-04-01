@@ -12,12 +12,19 @@ function saveToDos() {
   //
 }
 
-function deleteToDo(event) {
+function finishToDo(event) {
   // const li = event.target.parentElement;
-  const li = this.parentElement;
+  const li = this.nextSibling;
+  li.classList.toggle("checked");
   // li.remove();
   // toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
   // saveToDos();
+}
+
+function deleteToDo(event) {
+  const exo = this.parentElement;
+  exo.remove();
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(exo.id));
 }
 
 function paintToDo(newTodo) {
@@ -35,7 +42,8 @@ function paintToDo(newTodo) {
   toDoList.appendChild(li);
   // 이제 list를 지우는 작업을 해보자.
   // button이 클릭을 인식해야하므로 eventlister가 필요하다
-  button.addEventListener("click", deleteToDo);
+  button.addEventListener("click", finishToDo);
+  exo.addEventListener("click", deleteToDo);
 }
 
 function handleToDoSubmit(event) {
