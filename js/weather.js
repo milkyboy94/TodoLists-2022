@@ -1,5 +1,5 @@
-const weather = document.querySelector("#weather span:first-child");
-const city = document.querySelector("#weather span:last-child");
+const weather = document.querySelector("#weather div:first-child");
+const city = document.querySelector("#weather div:last-child");
 
 const API_KEY = "9f7feb05b3873b42ad9b9178641c8060";
 
@@ -11,8 +11,9 @@ function onGeoSuccess(position) {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      city.innerText = data.name;
-      weather.innerText = `${data.weather[0].main} / ${data.main.temp}`;
+      city.innerText = `현재 장소: ${data.name}`;
+      weather.innerText = `현재 날씨: ${data.weather[0].main} 
+       현재 온도: ${data.main.temp}`;
     });
 }
 

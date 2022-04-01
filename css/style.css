@@ -158,6 +158,13 @@ body {
     transform: none;
   }
 }
+#weather {
+  position: absolute;
+  bottom: 20px;
+}
+#weather div {
+  color: white;
+}
 
 #no-mobile {
   position: absolute;
