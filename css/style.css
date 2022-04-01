@@ -163,7 +163,7 @@ body {
   }
 }
 #weather {
-  position: absolute;
+  position: fixed;
   bottom: 30px;
 }
 #weather div {
