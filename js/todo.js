@@ -1,6 +1,7 @@
 const toDoForm = document.getElementById("todo-form");
 const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.getElementById("todo-list");
+const weather = document.getElementById("weather");
 
 let toDos = [];
 // application이 시작할때 toDos는 항상 비어있다
@@ -70,6 +71,10 @@ function handleToDoSubmit(event) {
   }
 }
 toDoForm.addEventListener("submit", handleToDoSubmit);
+weather.addEventListener(
+  "focus",
+  (event) => (event.target.style.background = "none")
+);
 
 const savedToDos = localStorage.getItem(TODOS_KEY);
 
