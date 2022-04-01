@@ -1,7 +1,7 @@
 const toDoForm = document.getElementById("todo-form");
 const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.getElementById("todo-list");
-const weather = document.getElementById("weather");
+const weath_city = document.getElementById("weather");
 
 let toDos = [];
 // application이 시작할때 toDos는 항상 비어있다
@@ -70,11 +70,18 @@ function handleToDoSubmit(event) {
     // array 안에 요소들이 들어가면 이제 이걸 localStorage안에 넣는다
   }
 }
+
+function removeWeathCity() {
+  weath_city.classList.add("hidden");
+}
+
+function showWeathCity() {
+  weath_city.classList.remove("hidden");
+}
+
 toDoForm.addEventListener("submit", handleToDoSubmit);
-weather.addEventListener(
-  "focus",
-  (event) => (event.target.style.background = "none")
-);
+toDoInput.addEventListener("focus", removeWeathCity);
+toDoInput.addEventListener("blur", showWeathCity);
 
 const savedToDos = localStorage.getItem(TODOS_KEY);
 

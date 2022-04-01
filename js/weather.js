@@ -15,6 +15,7 @@ function onGeoSuccess(position) {
       weather.innerText = `현재 날씨: ${data.weather[0].main} 
        현재 온도: ${data.main.temp}`;
     });
+  console.log(lat, lon);
 }
 
 function onGeoError() {
