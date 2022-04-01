@@ -15,9 +15,9 @@ function saveToDos() {
 function deleteToDo(event) {
   // const li = event.target.parentElement;
   const li = this.parentElement;
-  li.remove();
-  toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
-  saveToDos();
+  // li.remove();
+  // toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+  // saveToDos();
 }
 
 function paintToDo(newTodo) {
@@ -25,10 +25,12 @@ function paintToDo(newTodo) {
   li.id = newTodo.id;
   const span = document.createElement("span");
   const button = document.createElement("button");
+  const exo = document.createElement("button");
   button.innerText = "👍";
+  exo.innerText = "❌";
   li.appendChild(button);
   li.appendChild(span);
-
+  li.appendChild(exo);
   span.innerText = newTodo.text;
   toDoList.appendChild(li);
   // 이제 list를 지우는 작업을 해보자.
@@ -46,16 +48,19 @@ function handleToDoSubmit(event) {
   // paintToDo(newTodo)를 하기전에 toDos array를 가지고 와서 newToDo를 push
   // text를 push할수도 있고 object를 push할수도 있다
 
-  const newTodoObj = {
-    text: newTodo,
-    id: Date.now(),
-  };
-  toDos.push(newTodoObj);
-  paintToDo(newTodoObj);
-  saveToDos();
-  // array 안에 요소들이 들어가면 이제 이걸 localStorage안에 넣는다
+  if (toDos.length > 3) {
+    alert("할일은 하루에 최대 4개만!");
+  } else {
+    const newTodoObj = {
+      text: newTodo,
+      id: Date.now(),
+    };
+    toDos.push(newTodoObj);
+    paintToDo(newTodoObj);
+    saveToDos();
+    // array 안에 요소들이 들어가면 이제 이걸 localStorage안에 넣는다
+  }
 }
-
 toDoForm.addEventListener("submit", handleToDoSubmit);
 
 const savedToDos = localStorage.getItem(TODOS_KEY);
@@ -72,3 +77,5 @@ if (savedToDos !== null) {
 // function sayHello(item){
 //   console.log("turn of", item)
 // }
+
+console.log(toDos.length);
